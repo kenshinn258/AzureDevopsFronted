@@ -1,0 +1,77 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-4xl tracking-[1px] font-bold leading-[1.2] flex my-4 whitespace-pre;
+  }
+  h2 {
+    @apply text-[1.75rem] tracking-[1px] font-bold leading-[1.2] flex my-4 whitespace-pre;
+  }
+  h3 {
+    @apply text-2xl tracking-[1px] font-bold leading-[1.2] flex my-3 whitespace-pre;
+  }
+  h4 {
+    @apply text-xl tracking-[1px] font-bold leading-[1.2] flex my-3 whitespace-pre;
+  }
+  h5 {
+    @apply text-lg tracking-[1px] font-bold leading-[1.2] flex my-2 whitespace-pre;
+  }
+  h6 {
+    @apply text-base tracking-[1px] font-bold leading-[1.2] flex my-2 whitespace-pre;
+  }
+  table {
+    @apply w-full text-left table-auto;
+  }
+  a {
+    @apply text-blue-02 underline;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+  fieldset {
+    @apply px-2 pb-1 inline-block border border-solid border-gray-700;
+  }
+  legend {
+    @apply text-center px-2;
+  }
+}
+
+.n-base-selection-input,
+[type='text']:focus,
+input:where(:not([type])):focus {
+  @apply focus:ring-0 focus:ring-offset-0;
+}
+.n-message-container.n-message-container--top {
+  top: 150px !important;
+}
+
+@counter-style note-mark {
+  system: cyclic;
+  symbols: ◎;
+  suffix: '　';
+}
+.list-note-mark {
+  list-style: note-mark;
+  @apply pl-7;
+}
+@counter-style cjk-decimal-extends {
+  system: extends cjk-decimal;
+  prefix: '（';
+  suffix: '）';
+}
+.list-cjk-decimal-extends {
+  list-style: cjk-decimal-extends;
+  @apply pl-10;
+}
+
+@media print {
+  body {
+    @apply pt-4;
+  }
+}
